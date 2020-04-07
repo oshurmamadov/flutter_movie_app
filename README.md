@@ -1,4 +1,4 @@
-# fluttermovieapp
+# flutter movie app
 
 Movie app flutter application
 
