@@ -29,7 +29,6 @@ class MovieListState extends State<MovieList> {
     });
   }
 
-
   @override
   void initState() {
     super.initState();
@@ -98,15 +97,17 @@ class MovieTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
-      child: Text(
-        'Top Rated',
-        style: TextStyle(
-          fontSize: 40.0,
-          color: mainColor,
-          fontWeight: FontWeight.bold,
-          fontFamily: 'Arvo'
-        ),
-        textAlign: TextAlign.left,
+      child: Center(
+        child: Text(
+          'Top Rated',
+          style: TextStyle(
+              fontSize: 40.0,
+              color: mainColor,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Arvo'
+          ),
+          textAlign: TextAlign.center,
+        )
       ),
     );
   }
@@ -151,38 +152,38 @@ class MovieCell extends StatelessWidget {
                   ]
                 ),
               )
+            ),
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      movies[i]['title'],
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'Avro',
+                          fontWeight: FontWeight.bold,
+                          color: mainColor
+                      ),
+                    ),
+                    Padding(
+                        padding: EdgeInsets.all(2)
+                    ),
+                    Text(
+                      movies[i]['overview'],
+                      maxLines: 3,
+                      style: TextStyle(
+                          color: Color(0xff8785A4),
+                          fontFamily: 'Avro'
+                      ),
+                    )
+                  ],
+                ),
+              ),
             )
           ],
-        ),
-        Expanded(
-          child: Container(
-            margin: EdgeInsets.fromLTRB(16, 0, 16, 0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  movies[i]['title'],
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Avro',
-                    fontWeight: FontWeight.bold,
-                    color: mainColor
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsets.all(2)
-                ),
-                Text(
-                  movies[i]['overview'],
-                  maxLines: 3,
-                  style: TextStyle(
-                    color: Color(0xff8785A4),
-                    fontFamily: 'Avro'
-                  ),
-                )
-              ],
-            ),
-          ),
         ),
         Container(
             width: 300,
