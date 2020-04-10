@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'movie_detail.dart';
 
 class MovieList extends StatefulWidget {
 
@@ -43,10 +44,6 @@ class MovieListState extends State<MovieList> {
         elevation: 0.3,
         centerTitle: true,
         backgroundColor: Colors.white,
-        leading: Icon(
-          Icons.arrow_back,
-          color: mainColor,
-        ),
         title: Text(
           'Movies',
           style: TextStyle(
@@ -54,13 +51,7 @@ class MovieListState extends State<MovieList> {
             fontFamily: 'Arvo',
             fontWeight: FontWeight.bold
           ),
-        ),
-        actions: <Widget>[
-          Icon(
-            Icons.menu,
-            color: mainColor
-          )
-        ]
+        )
       ),
       body: Padding(
           padding: EdgeInsets.all(16.0),
@@ -76,7 +67,16 @@ class MovieListState extends State<MovieList> {
                         child: MovieCell(movies, i),
                         padding: EdgeInsets.all(0.0),
                         color: Colors.white,
-                        onPressed: (){}
+                        onPressed: (){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return MovieDetail(movies[i]);
+                                }
+                              )
+                          );
+                        }
                       );
                     }
                 ),
